@@ -1,14 +1,14 @@
 export class CreateCarbonFootprintFormDto {
-  numOfLightBulbs: number;
+  numOfLightBulbs: string;
   lightBulbType: string;
-  numOfTelevisions: number;
-  numOfRefrigerators: number;
-  heatingSystemsCount: number;
-  smallAppliancesCount: number;
+  numOfTelevisions: string;
+  numOfRefrigerators: string;
+  heatingSystemsCount: string;
+  smallAppliancesCount: string;
   transportationType: string;
-  dailyKMDistance: number;
-  flightFrequencyYearly: number;
+  dailyKMDistance: string;
+  flightFrequencyYearly: string;
   mail: string;
-  carbonFootprint: number;
   carbonFootprintLevel: string;
+  carbonFootprint: number;
 }

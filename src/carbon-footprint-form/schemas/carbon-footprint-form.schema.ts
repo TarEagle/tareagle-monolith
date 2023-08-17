@@ -8,39 +8,39 @@ export type PodDocument = HydratedDocument<CarbonFootprintForm>;
 })
 export class CarbonFootprintForm {
   @Prop({ required: true })
-  numOfLightBulbs: number;
+  numOfLightBulbs: string;
 
   @Prop({ required: true })
   lightBulbType: string;
 
   @Prop({ required: true })
-  numOfTelevisions: number;
+  numOfTelevisions: string;
 
   @Prop({ required: true })
-  numOfRefrigerators: number;
+  numOfRefrigerators: string;
 
   @Prop({ required: true })
-  heatingSystemsCount: number;
+  heatingSystemsCount: string;
 
   @Prop({ required: true })
-  smallAppliancesCount: number;
+  smallAppliancesCount: string;
 
   @Prop({ required: true })
   transportationType: string;
 
   @Prop({ required: true })
-  dailyKMDistance: number;
+  dailyKMDistance: string;
 
   @Prop({ required: true })
-  flightFrequencyYearly: number;
+  flightFrequencyYearly: string;
 
   @Prop()
   mail: string;
 
-  @Prop({ required: true })
+  @Prop()
   carbonFootprint: number;
 
-  @Prop({ required: true })
+  @Prop()
   carbonFootprintLevel: string;
 }
 

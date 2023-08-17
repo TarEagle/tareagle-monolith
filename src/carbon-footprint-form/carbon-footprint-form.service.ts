@@ -22,82 +22,61 @@ export class CarbonFootprintFormService {
   calculateScore(data: CreateCarbonFootprintFormDto) {
     let score = 0;
 
-    score += this.calculateLightBulbsScore(data.numOfLightBulbs);
-    score += this.calculateBulbTypeScore(data.lightBulbType);
-    score += this.calculateTelevisionScore(data.numOfTelevisions);
-    score += this.calculateRefrigeratorScore(data.numOfRefrigerators);
-    score += this.calculateHeatingSystemScore(data.heatingSystemsCount);
-    score += this.calculateSmallApplianceScore(data.smallAppliancesCount);
-    score += this.calculateTransportationScore(data.transportationType);
-    score += this.calculateDailyDistanceScore(data.dailyKMDistance);
-    score += this.calculateFlightFrequencyScore(data.flightFrequencyYearly);
-    data.carbonFootprintLevel = this.determinePollutionLevel(score);
+    score += this.calculateLightBulbsScore(parseInt(data.numOfLightBulbs));
+    score += this.calculateBulbTypeScore(parseInt(data.lightBulbType));
+    score += this.calculateTelevisionScore(parseInt(data.numOfTelevisions));
+    score += this.calculateRefrigeratorScore(parseInt(data.numOfRefrigerators));
+    score += this.calculateHeatingSystemScore(
+      parseInt(data.heatingSystemsCount),
+    );
+    score += this.calculateSmallApplianceScore(
+      parseInt(data.smallAppliancesCount),
+    );
+    score += this.calculateTransportationScore(
+      parseInt(data.transportationType),
+    );
+    score += this.calculateDailyDistanceScore(parseInt(data.dailyKMDistance));
+    score += this.calculateFlightFrequencyScore(
+      parseInt(data.flightFrequencyYearly),
+    );
     data.carbonFootprint = score;
+    data.carbonFootprintLevel = this.determinePollutionLevel(score);
   }
 
   private calculateLightBulbsScore(num: number): number {
-    if (num < 10) return 1;
-    if (num <= 20) return 2;
-    return 3;
+    return num;
   }
 
-  private calculateBulbTypeScore(type: string): number {
-    return type.toLowerCase() === 'LED' ? 1 : 2;
+  private calculateBulbTypeScore(type: number): number {
+    return type;
   }
 
   private calculateTelevisionScore(num: number): number {
-    if (num === 1) return 1;
-    if (num === 2) return 2;
-    return 3;
+    return num;
   }
 
   private calculateRefrigeratorScore(num: number): number {
-    if (num === 1) return 1;
-    if (num === 2) return 2;
-    return 3;
+    return num;
   }
 
   private calculateHeatingSystemScore(num: number): number {
-    if (num === 0) return 1;
-    if (num === 1) return 2;
-    return 3;
+    return num;
   }
 
   private calculateSmallApplianceScore(num: number): number {
-    if (num < 3) return 1;
-    if (num <= 5) return 2;
-    return 3;
+    return num;
   }
 
-  private calculateTransportationScore(type: string): number {
-    switch (type.toLowerCase()) {
-      case 'PIE':
-      case 'BICI':
-        return 1;
-      case 'TRASNPORTE_PUBLICO':
-      case 'BUS':
-        return 2;
-      case 'VEHICULO_PROPIO_ELECTRICO':
-        return 3;
-      case 'VEHICULO_PROPIO_DIESEL':
-        return 4;
-      default:
-        return 0;
-    }
+  private calculateTransportationScore(type: number): number {
+    return type;
   }
 
   private calculateDailyDistanceScore(km: number): number {
-    if (km < 5) return 1;
-    if (km <= 20) return 2;
-    if (km <= 50) return 3;
-    return 4;
+    return km;
   }
 
   private calculateFlightFrequencyScore(num: number): number {
-    if (num === 0) return 1;
-    if (num <= 2) return 2;
-    if (num <= 5) return 3;
-    return 4;
+    return num;
   }
 
   private determinePollutionLevel(score: number): string {

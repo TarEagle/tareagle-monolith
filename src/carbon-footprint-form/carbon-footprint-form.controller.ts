@@ -8,7 +8,7 @@ export class CarbonFootprintFormController {
     private readonly carbonFootprintFormService: CarbonFootprintFormService,
   ) {}
 
-  @Post()
+  @Post('people')
   create(@Body() createCarbonFootprintFormDto: CreateCarbonFootprintFormDto) {
     return this.carbonFootprintFormService.create(createCarbonFootprintFormDto);
   }

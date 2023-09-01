@@ -8,6 +8,7 @@ export class CreateCarbonFootprintFormDto {
   transportationType: string;
   dailyKMDistance: string;
   flightFrequencyYearly: string;
+  typeOfDiet: string;
   mail: string;
   carbonFootprintLevel: string;
   carbonFootprint: number;

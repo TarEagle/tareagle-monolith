@@ -34,6 +34,9 @@ export class CarbonFootprintForm {
   @Prop({ required: true })
   flightFrequencyYearly: string;
 
+  @Prop({ required: true })
+  typeOfDiet: string;
+
   @Prop()
   mail: string;
 

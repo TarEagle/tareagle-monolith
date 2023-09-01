@@ -39,8 +39,9 @@ export class CarbonFootprintFormService {
     score += this.calculateFlightFrequencyScore(
       parseInt(data.flightFrequencyYearly),
     );
-    data.carbonFootprint = score;
-    // data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
+    score += this.calculateTypeOfDietScore(parseInt(data.typeOfDiet));
+
+    data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
     data.carbonFootprintLevel = this.determinePollutionLevel(score);
   }
 
@@ -64,10 +65,6 @@ export class CarbonFootprintFormService {
     return num;
   }
 
-  private calculateSmallApplianceScore(num: number): number {
-    return num;
-  }
-
   private calculateTransportationScore(type: number): number {
     return type;
   }
@@ -77,6 +74,14 @@ export class CarbonFootprintFormService {
   }
 
   private calculateFlightFrequencyScore(num: number): number {
+    return num;
+  }
+
+  private calculateSmallApplianceScore(num: number): number {
+    return num;
+  }
+
+  private calculateTypeOfDietScore(num: number): number {
     return num;
   }
 

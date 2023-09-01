@@ -39,7 +39,7 @@ export class CarbonFootprintFormService {
     score += this.calculateFlightFrequencyScore(
       parseInt(data.flightFrequencyYearly),
     );
-    data.carbonFootprint = score;
+    data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
     data.carbonFootprintLevel = this.determinePollutionLevel(score);
   }
 
@@ -82,7 +82,7 @@ export class CarbonFootprintFormService {
   private determinePollutionLevel(score: number): string {
     if (score <= 10) return 'Bajo';
     if (score <= 20) return 'Moderado';
-    if (score <= 30) return 'Medio';
+    if (score <= 30) return 'Considerable';
     if (score <= 40) return 'Alto';
     return 'Excedido';
   }

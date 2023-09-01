@@ -39,7 +39,8 @@ export class CarbonFootprintFormService {
     score += this.calculateFlightFrequencyScore(
       parseInt(data.flightFrequencyYearly),
     );
-    data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
+    data.carbonFootprint = score;
+    // data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
     data.carbonFootprintLevel = this.determinePollutionLevel(score);
   }
 

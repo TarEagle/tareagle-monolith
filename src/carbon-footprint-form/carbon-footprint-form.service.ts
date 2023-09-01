@@ -41,7 +41,7 @@ export class CarbonFootprintFormService {
     );
     score += this.calculateTypeOfDietScore(parseInt(data.typeOfDiet));
 
-    // data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
+    data.carbonFootprint = parseFloat((score * 0.805).toFixed(2));
     data.carbonFootprint = score;
     data.carbonFootprintLevel = this.determinePollutionLevel(score);
   }
